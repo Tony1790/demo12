@@ -1,0 +1,37 @@
+spring:
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:mariadb://localhost:3306/vuehaha
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+
+
+server:
+  servlet:
+    encoding:
+      force-response: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.example.demo.domain
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
+  org.mybatis: debug
+  org.springframework.web: DEBUG
+  com.example.demo: DEBUG
+
+jwt:
+  header: Authorization
+  secret: demoproject
+  token-validity-in-seconds: 8640000
+logging:
+  level:
+    root: debug
